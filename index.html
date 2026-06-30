@@ -2,7 +2,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>SMC · DMR — Daily Management Review 2025-26 v61</title>
+<title>SMC · DOR — Daily Management Review 2025-26 v61</title>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -1025,10 +1025,11 @@ body.lt .util-card{background:linear-gradient(145deg,rgba(255,255,255,.055) 0%,r
 
 
 
+
 <!-- ═══════ SIDEBAR ═══════ -->
 <div class="sidebar" id="sidebar">
   <div class="logo">
-    <div class="logo-text">SMC · DMR</div>
+    <div class="logo-text">SMC · DOR</div>
     <div class="logo-sub">Daily Mgmt Review</div>
   </div>
 
@@ -2484,8 +2485,8 @@ function renderSparkline(id,data,color='#C8A96E'){
 
 /* ── NOTES ── */
 let NOTES=[];
-function loadNotes(){try{NOTES=JSON.parse(localStorage.getItem('smcDMR_v5')||'[]');}catch{NOTES=[];}}
-function saveNotes(){localStorage.setItem('smcDMR_v5',JSON.stringify(NOTES));}
+function loadNotes(){try{NOTES=JSON.parse(localStorage.getItem('smcDOR_v5')||'[]');}catch{NOTES=[];}}
+function saveNotes(){localStorage.setItem('smcDOR_v5',JSON.stringify(NOTES));}
 
 /* ── THEME ── */
 let isDark=false;
@@ -3788,7 +3789,7 @@ function exportExcel(){
   XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(traceRows),'KPI Traceability');
   
   XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet([['Date','Cat','Note'],...NOTES.map(n=>[n.date,n.cat,n.text])]),'Notes');
-  XLSX.writeFile(wb,`SMC_DMR_${new Date().toISOString().slice(0,10)}.xlsx`);
+  XLSX.writeFile(wb,`SMC_DOR_${new Date().toISOString().slice(0,10)}.xlsx`);
 }
 
 
